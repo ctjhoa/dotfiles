@@ -1,0 +1,80 @@
+#### Basic Options ####
+
+# C-b is acceptable
+# Vim uses it but C-d & C-u are similar and more intuitive
+# set-option -g prefix C-a
+
+# UTF-8
+set -g utf8 on
+set -g status-utf8 on
+
+# Terminfo
+set -g default-terminal "screen-256color"
+
+# Faster Command Sequences
+set-option -sg escape-time 0
+
+# Vim mode
+setw -g mode-keys vi
+set -g status-keys vi
+bind-key -t vi-edit Up history-up
+bind-key -t vi-edit Down history-down
+unbind-key [
+bind-key Escape copy-mode
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-pipe "tmux show-buffer | xsel -ib"
+bind C-p run "tmux set-buffer \"$(xsel -ob)\"; tmux paste-buffer"
+bind : command-prompt
+
+# Split
+unbind %
+bind h split-window -v
+unbind '"'
+bind v split-window -h
+
+# Wm window title string (uses statusbar variables)
+set -g set-titles-string "tmux:#I [ #W ]"
+
+# Rather than constraining window size to the maximum size of any client
+# connected to the *session*, constrain window size to the maximum size of any
+# client connected to *that window*. Much more reasonable.
+setw -g aggressive-resize on
+
+#### Appearance ####
+
+# Enable status bar
+bind-key b set-option status
+
+set -g window-status-format "#I:#W"
+set -g window-status-current-format "#I:#W"
+
+set -g status-interval 1
+set -g status-justify centre # center align window list
+
+# Default statusbar colors
+set -g status-fg white
+set -g status-bg default
+
+# Default window title colors
+set-window-option -g window-status-fg black
+set-window-option -g window-status-bg default
+set-window-option -g window-status-attr dim
+
+# Active window title colors
+set-window-option -g window-status-current-fg white
+set-window-option -g window-status-current-bg default
+set-window-option -g window-status-current-attr dim
+
+# Set bell colours
+set -g window-status-bell-bg default                                                                      
+set -g window-status-bell-fg red
+set -g window-status-bell-attr bright
+
+# Command/message line colors
+set -g message-fg white
+set -g message-bg black
+set -g message-attr bright
+
+# Statusbar starting in X or not
+if '[ -n "$DISPLAY" ]' 'source-file ~/.tmux/inx'
+if '[ -z "$DISPLAY" ]' 'source-file ~/.tmux/xless'

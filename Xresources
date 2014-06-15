@@ -1,0 +1,39 @@
+! general settings
+URxvt*saveline:         15000
+URxvt*termName:         rxvt-256color
+URxvt*iso14755:         false
+
+! appearance
+URxvt*depth:            32
+!URxvt*background:       rgba:0000/0000/0000/EE00
+!URxvt*foreground:       AntiqueWhite
+URxvt.underlineColor:   #4682B4
+URxvt.highlightColor:   #4682B4
+URxvt.throughColor:     Blue
+URxvt*cursorColor:      Green
+URxvt*cursorColor2:     Black
+URxvt*scrollBar:        false
+URxvt*scrollBar_right:  false
+URxvt*internalBorder:   1
+URxvt*externalBorder:   0
+URxvt*borderColor:      rgba:0000/0000/0000/EE00
+
+URxvt*jumpScroll:       true
+URxvt*skipScroll:       true
+URxvt*scrollTtyOutput:  false
+URxvt*scrollWithBuffer: false
+
+#include ".config/.colors/bohemiath"
+
+! fonts
+!Xft.dpi:                96
+Xft.authint:            0
+Xft.lcdfilter:          lcddefault
+Xft.antialias:          true
+Xft.hinting:            true
+Xft.hintstyle:          hintslight
+
+
+!! Droid Sans Mono
+URxvt*font:             xft:Droid Sans Mono:size=9
+
