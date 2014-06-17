@@ -14,7 +14,7 @@ ln -sfT $confdir/config/colors ~/.config/colors
 
 # Create file links
 ln -sf $confdir/compton.conf ~/.compton.conf
-ln -sf ~/tmux/conf ~/.tmux.conf
+ln -sf ~/.config/tmux/conf ~/.tmux.conf
 ln -sf $confdir/xinitrc ~/.xinitrc
 ln -sf $confdir/Xresources ~/.Xresources
 ln -sf $confdir/zprofile ~/.zprofile
