@@ -23,7 +23,7 @@ URxvt*skipScroll:       true
 URxvt*scrollTtyOutput:  false
 URxvt*scrollWithBuffer: false
 
-#include ".config/.colors/bohemiath"
+#include "config/colors/bohemiath"
 
 ! fonts
 !Xft.dpi:                96
