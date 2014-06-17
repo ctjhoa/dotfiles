@@ -35,5 +35,6 @@ Xft.hintstyle:          hintslight
 
 
 !! Droid Sans Mono
-URxvt*font:             xft:Droid Sans Mono:size=9
-
+!URxvt*font:             xft:Droid Sans Mono:size=9
+URxvt*font:             xft:Monaco:size=9
+!URxvt*font:             xft:Bitstream Vera Sans Mono:size=10
