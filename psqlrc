@@ -1,0 +1,55 @@
+\set QUIET 1
+
+-- Custom prompt
+-- no color '%n@%M (psql)-%/ %R%# '
+-- color:  %[%033[COLOR_VALUE%]
+--
+-- 1m     -     Change text to hicolour (bold) mode
+-- 4m     -        "    "   "  Underline (doesn't seem to work)
+-- 5m     -        "    "   "  BLINK!!
+-- 8m     -        "    "   "  Hidden (same colour as bg)
+-- 30m    -        "    "   "  Black
+-- 31m    -        "    "   "  Red
+-- 32m    -        "    "   "  Green
+-- 33m    -        "    "   "  Yellow
+-- 34m    -        "    "   "  Blue
+-- 35m    -        "    "   "  Magenta
+-- 36m    -        "    "   "  Cyan
+-- 37m    -        "    "   "  White
+-- 40m    -     Change Background to Black
+-- 41m    -        "       "      "  Red
+-- 42m    -        "       "      "  Green
+-- 43m    -        "       "      "  Yellow
+-- 44m    -        "       "      "  Blue
+-- 45m    -        "       "      "  Magenta
+-- 46m    -        "       "      "  Cyan
+-- 47m    -        "       "      "  White
+-- 7m     -     Change to Black text on a White bg
+-- 0m     -     Turn off all attributes.
+
+\set PROMPT1 '%[%033[31m%]%n%[%033[0m%]@%[%033[32m%]%M %[%033[37;1m%]%/ %[%033[0m%]%[%033[31m%](%[%033[0m%]psql%[%033[31m%]) %[%033[0m%]%R%# '
+\set PROMPT2 '[more] %R > '
+
+-- Time each command
+\timing
+
+-- By default, NULL displays as an empty space. Is it actually an empty
+-- string, or is it null? This makes that distinction visible.
+\pset null '[NULL]'
+
+-- Verbose error reports.
+\set VERBOSITY verbose
+
+-- Use table format (with headers across the top) by default, but switch to
+-- expanded table format when there's a lot of data, which makes it much
+-- easier to read.
+\x auto
+
+-- Use a separate history file per-database.
+\set HISTFILE ~/.psql_history- :DBNAME
+
+-- If a command is run more than once in a row, only store it once in the
+-- history.
+\set HISTCONTROL ignoredups
+
+\unset QUIET

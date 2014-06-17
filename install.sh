@@ -19,3 +19,4 @@ ln -sf $confdir/xinitrc ~/.xinitrc
 ln -sf $confdir/Xresources ~/.Xresources
 ln -sf $confdir/zprofile ~/.zprofile
 ln -sf $confdir/zshrc ~/.zshrc
+ln -sf $confdir/psqlrc ~/.psqlrc
