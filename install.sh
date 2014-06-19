@@ -11,6 +11,7 @@ confdir=`pwd`
 ln -sfT $confdir/emacs.d ~/.emacs.d
 ln -sfT $confdir/config/tmux ~/.config/tmux
 ln -sfT $confdir/config/colors ~/.config/colors
+ln -sfT $confdir/fonts ~/.fonts
 
 # Create file links
 ln -sf $confdir/compton.conf ~/.compton.conf
