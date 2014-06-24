@@ -40,6 +40,9 @@ set -g set-titles-string "tmux:#I [ #W ]"
 # client connected to *that window*. Much more reasonable.
 setw -g aggressive-resize on
 
+# Tmux inception | C-t to control tmux inside tmux 
+bind-key -n C-t send-prefix
+
 #### Appearance ####
 
 # Enable status bar
