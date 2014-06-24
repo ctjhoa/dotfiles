@@ -18,6 +18,9 @@ mkfontdir ~/.fonts
 mkfontscale ~/.fonts
 xset fp+ ~/.fonts
 
+# Load X ressources (Xdefault is deprecated)
+xrdb ~/.Xresources
+
 exec dwm
 #exec awesome
 # exec gnome-session
