@@ -13,6 +13,12 @@ fi
 
 compton --config ~/.compton.conf -b
 
+# Statusbar loop
+while true; do
+  xsetroot -name "$( date +"%H:%M %d/%m" )"
+  sleep 1m    # Update time every minute
+done &
+
 # Load bitmap fonts
 mkfontdir ~/.fonts
 mkfontscale ~/.fonts
