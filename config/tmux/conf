@@ -43,6 +43,9 @@ setw -g aggressive-resize on
 # Tmux inception | C-t to control tmux inside tmux 
 bind-key -n C-t send-prefix
 
+# open %% man page
+bind C-m command-prompt -p "Open man page for:" "new-window 'exec man %%'"
+
 #### Appearance ####
 
 # Enable status bar
