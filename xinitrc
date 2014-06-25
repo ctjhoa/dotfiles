@@ -15,7 +15,7 @@ compton --config ~/.compton.conf -b
 
 # Statusbar loop
 while true; do
-  xsetroot -name "$( date +"%H:%M %d/%m" )"
+	xsetroot -name "$( date +"%d %a") $(echo -e "\x01") $( date +"%H:%M" )"
   sleep 1m    # Update time every minute
 done &
 
