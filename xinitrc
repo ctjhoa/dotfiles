@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # ~/.xinitrc
 #
@@ -15,8 +15,32 @@ compton --config ~/.compton.conf -b
 
 # Statusbar loop
 while true; do
-	xsetroot -name "$( date +"%d %a") $(echo -e "\x01") $( date +"%H:%M" )"
-  sleep 1m    # Update time every minute
+  # Power/Battery Status
+  if [ -e "/sys/class/power_supply/AC0/online" ] && [ ! "$( cat /sys/class/power_supply/AC0/online )" -eq "1" ]; then
+    DWM_BATTERY=$(( `cat /sys/class/power_supply/BAT0/energy_now` * 100 / `cat /sys/class/power_supply/BAT0/energy_full` ));
+  else
+    DWM_BATTERY="AC";
+  fi;
+
+  # Date
+  DWM_DATE=$( date +"%d %a" )
+
+  # Clock
+  DWM_CLOCK=$( date +"%H:%M" )
+
+  # Separator
+  DWM_SEP=" $( echo -e '\x01' ) "
+
+  # Widgets array
+  DWM_WIDGETS=("$DWM_BATTERY" "$DWM_DATE" "$DWM_CLOCK")
+
+  # Final bar
+  DWM_BAR="$( printf "${DWM_SEP}%s" "${DWM_WIDGETS[@]}" )"
+  DWM_BAR="${DWM_BAR:${#DWM_SEP}}"
+  xsetroot -name "${DWM_BAR}"
+
+  # Update time every minute
+  sleep 1m
 done &
 
 # Load bitmap fonts
