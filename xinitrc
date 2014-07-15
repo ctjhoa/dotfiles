@@ -29,7 +29,7 @@ while true; do
   DWM_CLOCK=$( date +"%H:%M" )
 
   # Separator
-  DWM_SEP=" $( echo -e '\x01' ) "
+  DWM_SEP=" $( echo '«' ) "
 
   # Widgets array
   DWM_WIDGETS=("$DWM_BATTERY" "$DWM_DATE" "$DWM_CLOCK")
