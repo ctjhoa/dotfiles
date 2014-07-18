@@ -31,7 +31,7 @@
 \set PROMPT2 '%[%033[32m%][%[%033[35;1m%]more%[%033[32;0m%]%[%033[32m%]] %[%033[0m%]%R> '
 
 -- Time each command
-\timing
+-- \timing
 
 -- By default, NULL displays as an empty space. Is it actually an empty
 -- string, or is it null? This makes that distinction visible.
