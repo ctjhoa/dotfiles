@@ -21,7 +21,7 @@ Simple custom style from Jason Wryan with full vi mode.
 Login manager is for loosers. Start X from tty.
 
 ## Xresources
-Bohemiath color config is mime.
+Bohemiath color config is mine.
 Inspired from the two others colors files (authors: jasonwryan and kori)
 
 ## Zsh
