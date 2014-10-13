@@ -21,3 +21,6 @@ ln -sf $confdir/Xresources ~/.Xresources
 ln -sf $confdir/zprofile ~/.zprofile
 ln -sf $confdir/zshrc ~/.zshrc
 ln -sf $confdir/psqlrc ~/.psqlrc
+ln -sf $confdir/gtkrc-1.2-gnome2 ~/.gtkrc-1.2-gnome2
+ln -sf $confdir/gtkrc-2.0 ~/.gtkrc-2.0
+ln -sf $confdir/gtkrc.mine ~/.gtkrc.mine
