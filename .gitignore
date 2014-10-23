@@ -1,3 +1,5 @@
 *~
 *.swp
 *.swo
+emacs/.emacs.d/auto-save-list
+emacs/.emacs.d/elpa
