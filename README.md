@@ -5,10 +5,14 @@ I don't like fancy configuration it's KISS.
 No preview for the moment (but soon)
 
 ## Installation
-Create links with install.sh scripts
-(beware it will erase old config files)
+```
+chmod +x install.sh
+./install.sh
+```
+Use GNU Stow to handle links.
 
 ## Requirements
+- stow
 - compton
 - tmux
 - xorg
