@@ -1,9 +1,14 @@
+; Init MELPA repo
 (require 'package)
+(add-to-list 'package-archives
+	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
+; Theme
 (load-theme 'wombat)
+(set-default-font "Monaco-9")
 
+; Remove bars
 (progn
     (menu-bar-mode -1)
     (scroll-bar-mode -1)
@@ -11,12 +16,18 @@
 
 (setq inhibit-startup-screen t)
 
+; Auto install use-package
+(if (not (package-installed-p 'use-package))
+  (progn
+    (package-refresh-contents)
+    (package-install 'use-package)))
+
 (require 'use-package)
 
 (use-package eldoc
   :init (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode))
 
-; ensure packages
+; Ensure packages
 (use-package ido
   :ensure
   :init (ido-mode t)
@@ -58,7 +69,7 @@
   :config
   (progn
     (define-key company-mode-map (kbd "C-n") 'company-select-next)
-    (define-key company-mode-map (kbd "C-p") 'company-select-previous))
+    (define-key company-mode-map (kbd "C-p") 'company-select-previous)))
 
 
 (use-package evil
@@ -70,5 +81,4 @@
   (progn 
     (evil-mode t)
     (define-key evil-ex-map (kbd "e ") 'ido-find-file)
-    (define-key evil-ex-map (kbd "b ") 'ido-switch-buffer)
-))
+    (define-key evil-ex-map (kbd "b ") 'ido-switch-buffer)))
