@@ -24,9 +24,6 @@
 
 (require 'use-package)
 
-(use-package eldoc
-  :init (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode))
-
 ; Ensure packages
 (use-package ido
   :ensure
@@ -47,30 +44,15 @@
       :init (smex-initialize)
       :bind ("M-x" . smex))))
 
-(use-package highlight-parentheses
-  :ensure
-  :init
-  (progn 
-    (defun turn-on-highlight-parentheses-mode ()
-      (highlight-parentheses-mode t))
-    (add-hook 'emacs-lisp-mode-hook 'turn-on-highlight-parentheses-mode)))
-  
-(use-package rainbow-delimiters
-  :ensure
-  :init
-  (progn 
-    (defun turn-on-rainbow-delimiters-mode ()
-      (rainbow-delimiters-mode t))
-    (add-hook 'emacs-lisp-mode-hook 'turn-on-rainbow-delimiters-mode)))
-
 (use-package company
   :ensure
-  :init (global-company-mode t)
+  :idle (global-company-mode t)
   :config
   (progn
     (define-key company-mode-map (kbd "C-n") 'company-select-next)
-    (define-key company-mode-map (kbd "C-p") 'company-select-previous)))
-
+    (define-key company-mode-map (kbd "C-p") 'company-select-previous)
+    (define-key company-active-map (kbd "C-d") 'company-show-doc-buffer)
+    (define-key company-active-map (kbd "<tab>") 'company-complete)))
 
 (use-package evil
   :ensure
@@ -82,3 +64,24 @@
     (evil-mode t)
     (define-key evil-ex-map (kbd "e ") 'ido-find-file)
     (define-key evil-ex-map (kbd "b ") 'ido-switch-buffer)))
+
+; Per languages
+(add-hook 'emacs-lisp-mode-hook
+	  (lambda()
+	    (use-package eldoc
+	      :ensure
+	      :diminish eldoc-mode
+	      :init
+	      (progn 
+		(eldoc-mode t)))
+	    (use-package highlight-parentheses
+	      :ensure
+	      :init
+	      (progn 
+		(highlight-parentheses-mode t)))
+	    (use-package rainbow-delimiters
+	      :ensure
+	      :init
+	      (progn 
+		  (rainbow-delimiters-mode t)))
+	    (electric-pair-mode t)))
