@@ -28,6 +28,15 @@
 
 (toggle-truncate-lines t)
 
+; Trailing whitespace on file saving
+(add-hook 'before-save-hook 'whitespace-cleanup)
+
+; Move temp file in OS temp dir
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
 ; Auto install use-package
 (if (not (package-installed-p 'use-package))
   (progn
@@ -108,7 +117,6 @@
     :init (smex-initialize)
     :bind ("M-x" . smex)))
 
-
 (use-package yasnippet
   :ensure
   :diminish yas-minor-mode
@@ -122,13 +130,22 @@
   :ensure
   :commands global-company-mode
   :idle (global-company-mode)
+  :idle-priority 1
   :config
   (progn
+    (setq company-transformers '(company-sort-by-occurrence)
+	  company-require-match t)
     (add-to-list 'company-backends 'company-yasnippet)
     (define-key company-mode-map (kbd "C-n") 'company-select-next)
     (define-key company-mode-map (kbd "C-p") 'company-select-previous)
-    (define-key company-active-map (kbd "C-d") 'company-show-doc-buffer)
-    (define-key company-active-map (kbd "<tab>") 'company-complete)))
+    (define-key company-mode-map (kbd "C-d") 'company-show-doc-buffer)
+    (define-key company-mode-map (kbd "<tab>") 'company-complete)
+  (use-package company-tern
+    :ensure
+    :config
+    (progn
+      (add-hook 'js-mode-hook (lambda()
+				(add-to-list 'company-backends 'company-tern)))))))
 
 (use-package evil
   :ensure
@@ -136,7 +153,7 @@
   (setq evil-want-C-u-scroll t
 	evil-want-C-i-jump t)
   :config
-  (progn 
+  (progn
     (evil-mode t)
     (evil-add-hjkl-bindings magit-status-mode-map 'emacs
       ":" 'evil-ex
@@ -149,7 +166,7 @@
        (define-key evil-normal-state-map k (lookup-key evil-motion-state-map k))
        (define-key evil-motion-state-map k nil))
      (list (kbd "RET") " "))
-    ;; ex-mode shortcuts
+    ;; ex-mode shortcutss
     (define-key evil-ex-map "e " 'ido-find-file)
     (define-key evil-ex-map "b " 'ido-switch-buffer)
     (define-key evil-ex-map "pf " 'projectile-find-file)
@@ -162,70 +179,101 @@
     ;; ESC exit from anywhere
     (define-key evil-normal-state-map [escape] 'keyboard-quit)
     (define-key evil-visual-state-map [escape] 'keyboard-quit)
-    (define-key minibuffer-local-map [escape] 'abort-recursive-edit)
-    (define-key minibuffer-local-ns-map [escape] 'abort-recursive-edit)
-    (define-key minibuffer-local-completion-map [escape] 'abort-recursive-edit)
-    (define-key minibuffer-local-must-match-map [escape] 'abort-recursive-edit)
-    (define-key minibuffer-local-isearch-map [escape] 'abort-recursive-edit))
-  (use-package evil-visualstar
-    :ensure)
-  (use-package evil-jumper
-    :ensure)
-  (use-package evil-matchit
-    :ensure)
-  (use-package evil-surround
+    (define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
+    (define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
+    (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
+    (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
+    (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+    (global-set-key [escape] 'keyboard-quit)
+    (use-package evil-visualstar
+      :ensure)
+    (use-package evil-jumper
+      :ensure)
+    (use-package evil-matchit
+      :ensure)
+    (use-package evil-surround
+      :ensure
+      :commands global-evil-surround-mode
+      :idle (global-evil-surround-mode)
+      :config
+      (setq-default surround-pairs-alist
+		    '((?\( . ("(" . ")"))
+		      (?\[ . ("[" . "]"))
+		      (?\{ . ("{" . "}"))
+		      (?\) . ("( " . " )"))
+		      (?\] . ("[ " . " ]"))
+		      (?\} . ("{ " . " }"))
+		      (?# . ("#{" . "}"))
+		      (?b . ("(" . ")"))
+		      (?B . ("{" . "}"))
+		      (?> . ("<" . ">"))
+		      (?t . evil-surround-read-tag)
+		      (?< . evil-surround-read-tag)
+		      (?f . evil-surround-function))))))
+
+(use-package projectile
+  :ensure
+  :diminish (projectile-mode)
+  :commands (projectile-global-mode
+	     projectile-find-file
+	     projectile-switch-project
+	     projectile-switch-to-buffer)
+  :init (projectile-global-mode t)
+  :config
+  (use-package git-gutter-fringe+
     :ensure
-    :commands global-evil-surround-mode
-    :idle (global-evil-surround-mode)
+    :diminish git-gutter+-mode
+    :commands global-git-gutter+-mode
+    :idle (global-git-gutter+-mode)
     :config
-    (setq-default surround-pairs-alist
-		  '((?\( . ("(" . ")"))
-		    (?\[ . ("[" . "]"))
-		    (?\{ . ("{" . "}"))
-		    (?\) . ("( " . " )"))
-		    (?\] . ("[ " . " ]"))
-		    (?\} . ("{ " . " }"))
-		    (?# . ("#{" . "}"))
-		    (?b . ("(" . ")"))
-		    (?B . ("{" . "}"))
-		    (?> . ("<" . ">"))
-		    (?t . evil-surround-read-tag)
-		    (?< . evil-surround-read-tag)
-		    (?f . evil-surround-function)))))
+    (git-gutter-fr+-minimal)))
+
+(use-package magit
+  :ensure
+  :diminish magit-auto-revert-mode
+  :commands (magit-status
+	     magit-diff
+	     magit-log)
+  :init
+  (use-package magit-blame
+    :commands magit-blame-mode)
+  :config
+  (setq magit-status-buffer-switch-function 'switch-to-buffer))
 
 ;(use-package vi-tilde-fringe-mode
 ;  :ensure)
 
-;; Per languages
 ;(add-hook 'prog-mode-hook 'vi-tilde-fringe-mode)
 
-(use-package highlight-parentheses
+(use-package eldoc-mode
+  :diminish eldoc-mode
   :init
-  (progn 
+  (progn
     (add-hook 'emacs-lisp-mode-hook (lambda()
 				      (eldoc-mode t)))))
-(use-package highlight-parentheses
+(use-package electric-pair-mode
   :init
-  (progn 
+  (progn
     (add-hook 'emacs-lisp-mode-hook (lambda()
 				      (electric-pair-mode t)))))
 (use-package highlight-parentheses
   :ensure
   :init
-  (progn 
+  (progn
     (add-hook 'emacs-lisp-mode-hook (lambda()
 				      (highlight-parentheses-mode t)))))
 (use-package rainbow-delimiters
   :ensure
   :init
-  (progn 
+  (progn
     (add-hook 'emacs-lisp-mode-hook (lambda()
 				      (rainbow-delimiters-mode t)))))
 
 (use-package rainbow-mode
   :ensure
+  :diminish rainbow-mode
   :init
-  (progn 
+  (progn
     (add-hook 'emacs-lisp-mode-hook (lambda()
 				      (rainbow-mode t)))
     (add-hook 'css-mode-hook (lambda()
@@ -237,3 +285,7 @@
   :ensure
   :mode "\\.js\\'"
   :interpreter "javascript")
+
+(use-package rust-mode
+  :ensure
+  :mode "\\.rs\\'")
