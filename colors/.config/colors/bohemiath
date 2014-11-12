@@ -5,8 +5,8 @@
 ! vim:nu:ai:si:et:ts=4:sw=4:ft=txt:
 ! -------------------------------------------------
 
-URxvt.background: 	#121212
-URxvt.foreground: 	#CCCCCC
+*background: 	#121212
+*foreground: 	#CCCCCC
 
 !black
 *color0:		#313131
