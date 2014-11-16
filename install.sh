@@ -1,6 +1,5 @@
 #!/bin/sh
 
-stow colors
 stow compton
 stow emacs
 stow gtk
