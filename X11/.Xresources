@@ -14,7 +14,6 @@ Xft.hintstyle:          hintslight
 xterm*faceName:         xft:Monaco:medium:size=9
 
 ! URxvt
-URxvt*termName:         screen-256color
 URxvt*font:            	xft:Monaco:medium:size=9
 URxvt.letterSpace: 	-1
 URxvt*scrollBar:        false
