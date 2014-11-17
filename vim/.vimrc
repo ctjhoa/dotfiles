@@ -39,6 +39,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 \ }
 NeoBundle 'ctjhoa/miro8'
 NeoBundle 'cohama/lexima.vim'
+NeoBundle 'wting/rust.vim'
 
 call neobundle#end()
 
@@ -63,3 +64,7 @@ set number
 nnoremap <C-p> :Unite file_rec/async<cr>
 " Grep like
 nnoremap <space>/ :Unite grep:.<cr>
+
+" Move backup & swp files
+set backupdir=./.backup,.,/tmp
+set directory=.,./.backup,/tmp
