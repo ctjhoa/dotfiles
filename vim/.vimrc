@@ -38,6 +38,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    },
 \ }
 NeoBundle 'ctjhoa/miro8'
+NeoBundle 'cohama/lexima.vim'
 
 call neobundle#end()
 
