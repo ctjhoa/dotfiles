@@ -8,3 +8,4 @@ emacs/.emacs.d/*.eld
 emacs/.emacs.d/el-get/
 emacs/.emacs.d/recentf
 
+tmux/.tmux/*
