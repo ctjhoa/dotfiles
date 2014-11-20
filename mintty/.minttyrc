@@ -1,10 +1,8 @@
 BoldAsFont=no
 Term=xterm-256color
 CursorType=block
-
 ForegroundColour=204,204,204
 BackgroundColour=18,18,18
-#CursorColour= 220, 50, 47
 Black=49,49,49
 BoldBlack=74,74,74
 Red=120,81,140
@@ -21,3 +19,5 @@ Cyan=87,132,163
 BoldCyan=110,158,181
 White=169,179,183
 BoldWhite=215,216,217
+Locale=C
+Charset=UTF-8
