@@ -4,10 +4,13 @@
 
 ;; gui
 
+(if (display-graphic-p)
+  (progn
+    (menu-bar-mode -1)
+    (scroll-bar-mode -1)
+    (tool-bar-mode -1)))
+
 (progn
-  (menu-bar-mode -1)
-  (scroll-bar-mode -1)
-  (tool-bar-mode -1)
   (linum-mode t)
   (line-number-mode t)
   (column-number-mode t)
