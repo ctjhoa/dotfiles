@@ -25,7 +25,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'tpope/vim-sensible'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-markdown'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/vimproc.vim', {
@@ -38,7 +40,11 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    },
 \ }
 NeoBundle 'ctjhoa/miro8'
-NeoBundle 'cohama/lexima.vim'
+NeoBundleLazy 'cohama/lexima.vim', {
+\ 'autoload': {
+\     'filetypes': 'lisp',
+\    },
+\ }
 NeoBundle 'wting/rust.vim'
 
 call neobundle#end()
