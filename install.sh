@@ -2,6 +2,7 @@
 
 stow compton
 stow emacs
+stow git
 stow gtk
 stow mintty
 stow postgresql

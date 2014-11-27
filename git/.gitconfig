@@ -1,0 +1,18 @@
+[user]
+	name = Camille TJHOA
+	email = camille.tjhoa@gmail.com
+[core]
+	editor = vim
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch -vv
+	sl = log --graph --pretty=oneline --abbrev-commit --decorate
+	up = pull --rebase
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+
