@@ -6,6 +6,7 @@ stow git
 stow gtk
 stow mintty
 stow postgresql
+stow redshift
 stow tmux
 stow vim
 stow X11
