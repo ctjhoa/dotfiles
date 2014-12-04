@@ -3,6 +3,7 @@
 	email = camille.tjhoa@outlook.com
 [core]
 	editor = vim
+	excludesfile = /cygdrive/c/Users/ctjhoa/.gitignore_global
 [alias]
 	st = status
 	ci = commit
