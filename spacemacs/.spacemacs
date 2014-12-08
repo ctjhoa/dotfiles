@@ -12,7 +12,7 @@
  ;; List of configuration layers to load.
  dotspacemacs-configuration-layers '()
  ;; A list of packages and/or extensions that will not be install and loaded.
- dotspacemacs-excluded-packages '()
+ dotspacemacs-excluded-packages '(evil-search-highlight-persist)
 )
 
 ;; Settings
@@ -57,6 +57,7 @@
 (defun dotspacemacs/config ()
   "This is were you can ultimately override default Spacemacs configuration.
 This function is called at the very end of Spacemacs initialization."
+  (define-key evil-normal-state-map "Y" (kbd "y$"))
 )
 
 ;; Custom variables
