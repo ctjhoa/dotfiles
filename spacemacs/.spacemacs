@@ -52,12 +52,22 @@
 
   ;; Mouse
   (setq-default mouse-yank-at-point t)
+
+  ;; Hooks
+  (add-hook 'before-save-hook 'whitespace-cleanup)
 )
 
 (defun dotspacemacs/config ()
   "This is were you can ultimately override default Spacemacs configuration.
 This function is called at the very end of Spacemacs initialization."
   (define-key evil-normal-state-map "Y" (kbd "y$"))
+
+  ;;
+  ;; utf-8
+  ;;
+  (setq locale-coding-system 'utf-8)
+  (set-selection-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8)
 )
 
 ;; Custom variables
