@@ -10,7 +10,7 @@
  ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
  dotspacemacs-configuration-layer-path '()
  ;; List of configuration layers to load.
- dotspacemacs-configuration-layers '(javascript)
+ dotspacemacs-configuration-layers '(javascript git html)
  ;; A list of packages and/or extensions that will not be install and loaded.
  dotspacemacs-excluded-packages '(evil-search-highlight-persist)
 )
@@ -68,6 +68,7 @@ This function is called at the very end of Spacemacs initialization."
   (setq locale-coding-system 'utf-8)
   (set-selection-coding-system 'utf-8)
   (prefer-coding-system 'utf-8)
+  (setq selection-coding-system 'compound-text-with-extensions)
 )
 
 ;; Custom variables
