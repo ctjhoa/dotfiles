@@ -12,6 +12,6 @@ stow vim
 stow X11
 stow zsh
 
-if [ `uname -s` == CYGWIN* ]; then
+if [ "$(expr substr $(uname -s) 1 9)" == "CYGWIN_NT" ]; then
 	stow windows
 fi
