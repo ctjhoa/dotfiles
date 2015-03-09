@@ -1,7 +1,6 @@
 #!/bin/sh
 
 stow compton
-#stow emacs
 stow git
 stow gtk
 stow mintty
@@ -10,6 +9,9 @@ stow redshift
 stow spacemacs
 stow tmux
 stow vim
-#stow windows
 stow X11
 stow zsh
+
+if [ `uname -s` == CYGWIN* ]; then
+	stow windows
+fi
