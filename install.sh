@@ -14,5 +14,6 @@ stow zsh
 
 if [ "$(expr substr $(uname -s) 1 9)" == "CYGWIN_NT" ]; then
 	stow windows
+	mkdir -p ~/AppData/Roaming/bug.n
 	cp bug.n/Config.ini ~/AppData/Roaming/bug.n/Config.ini
 fi
