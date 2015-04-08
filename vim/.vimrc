@@ -46,7 +46,7 @@ NeoBundleLazy 'cohama/lexima.vim', {
 \     'filetypes': 'lisp',
 \    },
 \ }
-NeoBundle 'wting/rust.vim'
+NeoBundle 'rust-lang/rust.vim'
 
 call neobundle#end()
 
