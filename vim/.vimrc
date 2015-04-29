@@ -72,6 +72,15 @@ nnoremap <C-p> :Unite file_rec/async<cr>
 " Grep like
 nnoremap <space>/ :Unite grep:.<cr>
 
-" Move backup & swp files
-set backupdir=./.backup,.,/tmp
-set directory=.,./.backup,/tmp
+" I laugh in the face of danger
+set nobackup
+set noswapfile
+
+if has('persistent_undo')                                                   
+	let undodir = expand("~/.vim/undos/$USER")
+	if !isdirectory(undodir)
+		call mkdir(undodir)
+	endif
+	set undodir=~/.vim/undos/$USER/
+	set undofile
+endif
