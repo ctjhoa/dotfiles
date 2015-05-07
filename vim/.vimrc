@@ -78,10 +78,10 @@ set nobackup
 set noswapfile
 
 if has('persistent_undo')                                                   
-	let undodir = expand("~/.vim/undos/$USER")
+	let undodir = expand("~/.vim/undos")
 	if !isdirectory(undodir)
 		call mkdir(undodir)
 	endif
-	set undodir=~/.vim/undos/$USER/
+	set undodir=~/.vim/undos
 	set undofile
 endif
