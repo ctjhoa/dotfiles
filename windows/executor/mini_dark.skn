@@ -1,0 +1,65 @@
+[skinvalues]
+
+    textcolor - Color of the input text.
+    textbackcolor - Color of the background of the text input.
+    windowcolor - Color of the window border.
+    buttonarrowcolor - Color of the small arrow displayed in the drop-down button.
+    buttonoutlinecolor - Border color of the drop-down button.
+    buttonfillcolor - Fill color (background) of the drop-down button.
+    skintype - Skintype.. can be mini,small,medium.. medium is preferred or skins.
+    transactive - How transparent Executor shall be when it's window has focus. 0 to 255 where 0 is totally transparent and 255 is no transparency.
+    transinactive - How transparent Executor shall be when it's window doesn't have focus. 0 to 255 where 0 is totally transparent and 255 is no transparency.
+    showwindow - Should a default windows tool-window frame with caption be shown (0 = false, 1 = true).
+    showicon - Show the icon of current input (0 = false, 1 = true).
+    showcombo - Should the drop-down button be shown (0 = false, 1 = true).
+    skinpicture - Image file of the skin. if no path the image must be in the same directory as the skin file. Bmp and jpg's are accepted.
+    transparentcontrols - If enabled the background of the input and dropdown button (if visible) will be transparent and will show the skin behind it (0 = false, 1 = true). Default is false.
+    editheight - Height of the text edit box that will be draw on the skin (default is 14 pixels).
+    editwidth - Width of the text input edit field. Also see "Width" below.
+    editwidthnoicon - Width of the text input edit field when icon is disabled.
+    iconpixelsoffset - Used to determine where on the skin the icon should be drawn. The number of pixels that should be between the edit field (including drop-down) and the icon. Only applies to skintype=medium. Use this if you need to have Executor draw the icon more to the right. This will not impact on the width of the skin.
+    editleft - See "Width" below.
+    paddingright - See "Width" below.
+    paddingtop - See "Width" below.
+    paddingbottom - See "Width" below.
+    fontname - Name of the font. Example Arial.
+    fontsize - Fontsize. Default is 8.
+    fontbold - Font bold style (0 = false, 1 = true). Default is 0.
+    uselist - If true forces to use list instead of drop-down. If false forces to use standard drop-down. If left out the users current setting will be used (0 = false, 1 = true).
+    listpicture - Image file of background for list.
+    listfillmode - Specifies how the listpicture should be drawn. Can be tile or stretch.
+    listitems - If you have a fancy picture not suited for tiling or stretching you can specify how many visible items the list should have (each item has a height of 17 pixels).
+    listtextcolor - The color of the text in the list. If not specified the color will be same as the textcolor property.
+    titlefontsize - Size of the title font.
+    listfocustextcolor - Text color of the selected item in list.
+    listfocusbgcolor - Background color of the selected item in list.
+    listtitlecolor - Color of the optional title (description) text in list.
+    failcolor - Color of the text if input failed to launch.
+
+    titleenabled - If this is enabled the title (show hint) will show within the skin instead of above or below the Executor window (0 = false, 1 = true) Default = 0.
+    titleleft - X location of the title.
+    titletop - Y location of the title.
+    titletextcolor - Text color of the title.
+    titlewidth - Maximum width of the title (to avoid it being displayed over for example the icon).
+    titleprefix - This text (if any) will be prefixed to the title.
+
+    dropdownfontname - Font to use for dropdown.
+    dropdownfontsiz - Size of the dropdown font.
+
+    
+textcolor=#FFFFFF
+textbackcolor=#2A2A2A
+windowcolor=#2A2A2A
+buttonarrowcolor=#757575
+buttonoutlinecolor=#2A2A2A
+buttonfillcolor=#2A2A2A
+skintype=mini
+editheight=5
+editwidth=841
+transactive=255
+transinactive=255
+showwindow=0
+showicon=0
+showcombo=0
+fontname=Lucida Console
+fontsize=8
