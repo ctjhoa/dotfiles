@@ -47,7 +47,16 @@ NeoBundleLazy 'cohama/lexima.vim', {
 \     'filetypes': 'lisp',
 \    },
 \ }
-NeoBundle 'rust-lang/rust.vim'
+NeoBundleLazy 'cespare/vim-toml', {
+\ 'autoload': {
+\     'filetypes': 'toml',
+\    },
+\ }
+NeoBundleLazy 'rust-lang/rust.vim', {
+\ 'autoload': {
+\     'filetypes': 'rust',
+\    },
+\ }
 
 call neobundle#end()
 
