@@ -1,6 +1,7 @@
 BoldAsFont=no
 Term=xterm-256color
 CursorType=block
+CursorColour=120,81,140
 ForegroundColour=204,204,204
 BackgroundColour=18,18,18
 Black=49,49,49
