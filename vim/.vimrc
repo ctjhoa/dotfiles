@@ -26,7 +26,6 @@ NeoBundle 'tpope/vim-sensible'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplete.vim'
@@ -45,6 +44,11 @@ NeoBundle 'ctjhoa/miro8'
 NeoBundleLazy 'cohama/lexima.vim', {
 \ 'autoload': {
 \     'filetypes': 'lisp',
+\    },
+\ }
+NeoBundleLazy 'tpope/vim-markdown', {
+\ 'autoload': {
+\     'filetypes': 'markdown',
 \    },
 \ }
 NeoBundleLazy 'cespare/vim-toml', {
