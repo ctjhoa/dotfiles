@@ -22,3 +22,5 @@ White=169,179,183
 BoldWhite=215,216,217
 Locale=C
 Charset=UTF-8
+Font=DejaVu Sans Mono
+FontHeight=9
