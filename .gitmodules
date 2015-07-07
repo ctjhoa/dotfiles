@@ -4,4 +4,4 @@
 [submodule "spacemacs/.emacs.d"]
 	path = spacemacs/.emacs.d
 	url = https://github.com/syl20bnr/spacemacs.git
-	ignore = dirty
+	ignore = untracked
