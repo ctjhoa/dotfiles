@@ -1,11 +1,7 @@
 *~
 *.swp
 *.swo
-emacs/.emacs.d/auto-save-list
-emacs/.emacs.d/elpa
-emacs/.emacs.d/smex-items
-emacs/.emacs.d/*.eld
-emacs/.emacs.d/el-get/
-emacs/.emacs.d/recentf
+spacemacs/extensions/emoji-cheat-sheet
+spacemacs/extensions/yasnippet-snippets
 
 tmux/.tmux/*
