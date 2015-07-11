@@ -81,15 +81,11 @@ set t_Co=256
 " Line number
 set number
 
-" Ctr-p like
-nnoremap <C-p> :Unite file_rec/async<cr>
-" Grep like
-nnoremap <space>/ :Unite grep:.<cr>
-
 " I laugh in the face of danger
 set nobackup
 set noswapfile
 
+" Persistent undo
 if has('persistent_undo')                                                   
 	let undodir = expand("~/.vim/undos")
 	if !isdirectory(undodir)
@@ -98,3 +94,30 @@ if has('persistent_undo')
 	set undodir=~/.vim/undos
 	set undofile
 endif
+
+let mapleader = " "
+
+" Escape to quit
+function! s:UniteSettings()
+	let b:actually_quit = 0
+	setlocal updatetime=3
+	au! InsertEnter <buffer> let b:actually_quit = 0
+	au! InsertLeave <buffer> let b:actually_quit = 1
+	au! CursorHold  <buffer> if exists('b:actually_quit') && b:actually_quit | close | endif
+endfunction
+au FileType unite call s:UniteSettings()
+
+" Unite settings
+call unite#custom#profile('default', 'context', {
+			\ 'start_insert': 1,
+			\ 'winheight': 10,
+			\ 'direction': 'botright',
+			\ })
+
+" Ctr-p like
+nnoremap <C-p> :Unite file_rec/async<cr>
+" Grep like
+nnoremap <leader>/ :Unite grep:.<cr>
+" M-x like
+nnoremap <leader>x :Unite command<cr>
+
