@@ -52,6 +52,8 @@ xset fp+ ~/.fonts
 # Load X ressources (Xdefault is deprecated)
 xrdb ~/.Xresources
 
+xbindkeys &
+
 exec dwm
 #exec awesome
 # exec gnome-session
