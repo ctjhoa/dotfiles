@@ -82,6 +82,8 @@ set t_Co=256
 " Line number
 set number
 
+set cursorline
+
 " I laugh in the face of danger
 set nobackup
 set noswapfile
