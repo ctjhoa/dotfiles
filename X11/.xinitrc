@@ -55,6 +55,11 @@ xrdb ~/.Xresources
 # Laptop keyboard layout
 #setxkbmap -device `xinput -list | grep -i key | grep -m 1 "KEYBOARD_NAME" | grep -oP "(?<=id=)\d*"` fr
 
+xrandr --dpi 220
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
+xbindkeys &
+
 exec dwm
 #exec awesome
 # exec gnome-session
