@@ -52,7 +52,8 @@ xset fp+ ~/.fonts
 # Load X ressources (Xdefault is deprecated)
 xrdb ~/.Xresources
 
-xbindkeys &
+# Laptop keyboard layout
+#setxkbmap -device `xinput -list | grep -i key | grep -m 1 "KEYBOARD_NAME" | grep -oP "(?<=id=)\d*"` fr
 
 exec dwm
 #exec awesome
