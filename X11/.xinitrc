@@ -59,6 +59,7 @@ xrandr --dpi 220
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
 xbindkeys &
+setxkbmap -device `xinput -list | grep -i key | grep -m 1 "Apple Internal Keyboard" | grep -oP "(?<=id=)\d*"` fr
 
 exec dwm
 #exec awesome
