@@ -1,6 +1,7 @@
 #!/bin/sh
 
 stow -D compton
+stow -D dunst
 stow -D git
 stow -D gtk
 stow -D postgresql
