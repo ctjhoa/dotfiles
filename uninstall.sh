@@ -4,6 +4,7 @@ stow -D compton
 stow -D dunst
 stow -D git
 stow -D gtk
+stow -D gnupg
 stow -D postgresql
 stow -D redshift
 stow -D spacemacs
