@@ -4,7 +4,6 @@ stow compton
 stow dunst
 stow git
 stow gtk
-stow gnupg
 stow postgresql
 stow redshift
 stow spacemacs
