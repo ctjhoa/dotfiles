@@ -42,6 +42,11 @@ NeoBundle 'Shougo/vimproc.vim', {
 \ }
 NeoBundle 'ctjhoa/miro8'
 NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundleLazy 'elzr/vim-json', {
+\ 'autoload': {
+\     'filetypes': 'json',
+\    },
+\ }
 NeoBundleLazy 'cohama/lexima.vim', {
 \ 'autoload': {
 \     'filetypes': 'lisp',
