@@ -42,6 +42,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 \ }
 NeoBundle 'ctjhoa/miro8'
 NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'hecal3/vim-leader-guide'
+NeoBundle 'ctjhoa/spacevim'
 NeoBundleLazy 'elzr/vim-json', {
 \ 'autoload': {
 \     'filetypes': 'json',
@@ -121,11 +123,3 @@ call unite#custom#profile('default', 'context', {
 			\ 'winheight': 10,
 			\ 'direction': 'botright',
 			\ })
-
-" Ctr-p like
-nnoremap <C-p> :Unite file_rec/async<cr>
-" Grep like
-nnoremap <leader>/ :Unite grep:.<cr>
-" M-x like
-nnoremap <leader>x :Unite command<cr>
-
