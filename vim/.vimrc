@@ -40,6 +40,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'unix' : 'gmake',
 \    },
 \ }
+NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+NeoBundle 'junegunn/fzf.vim'
 NeoBundle 'ctjhoa/miro8'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'hecal3/vim-leader-guide'
@@ -123,3 +125,5 @@ call unite#custom#profile('default', 'context', {
 			\ 'winheight': 10,
 			\ 'direction': 'botright',
 			\ })
+
+let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
