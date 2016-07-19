@@ -98,7 +98,7 @@ set nobackup
 set noswapfile
 
 " Persistent undo
-if has('persistent_undo')                                                   
+if has('persistent_undo')
 	let undodir = expand("~/.vim/undos")
 	if !isdirectory(undodir)
 		call mkdir(undodir)
