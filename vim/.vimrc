@@ -112,6 +112,7 @@ if has('persistent_undo')
 endif
 
 let mapleader = " "
+let g:leaderGuide_vertical = 1
 
 " Escape to quit
 function! s:UniteSettings()
