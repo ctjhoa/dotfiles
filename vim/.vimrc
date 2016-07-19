@@ -42,10 +42,14 @@ NeoBundle 'Shougo/vimproc.vim', {
 \ }
 NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 NeoBundle 'junegunn/fzf.vim'
+NeoBundle 'junegunn/gv.vim'
 NeoBundle 'ctjhoa/miro8'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'hecal3/vim-leader-guide'
+NeoBundle 'dbakker/vim-projectroot'
 NeoBundle 'ctjhoa/spacevim'
+NeoBundle 'kovisoft/paredit'
+NeoBundle 'sheerun/vim-polyglot'
 NeoBundleLazy 'elzr/vim-json', {
 \ 'autoload': {
 \     'filetypes': 'json',
