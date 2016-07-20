@@ -9,7 +9,7 @@
 	ci = commit
 	co = checkout
 	br = branch -vv
-	sl = log --graph --pretty=oneline --abbrev-commit --decorate
+	sl = log --graph --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --abbrev-commit --decorate --date=short
 	up = pull --rebase
 [color]
 	branch = auto
