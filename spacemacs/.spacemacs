@@ -1,5 +1,5 @@
-;; vim: ft=lisp
 ;; -*- mode: emacs-lisp -*-
+;; vim: ft=lisp
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
