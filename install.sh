@@ -1,16 +1,17 @@
 #!/bin/sh
 
+stow X11
 stow compton
 stow dunst
 stow git
 stow gtk
 stow mpv
+stow mysql
 stow postgresql
 stow redshift
 stow spacemacs
 stow tmux
 stow vim
-stow X11
 stow zsh
 
 if [ "$(expr substr $(uname -s) 1 9)" == "CYGWIN_NT" ]; then
