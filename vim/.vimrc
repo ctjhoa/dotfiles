@@ -1,134 +1,66 @@
-" Note: Skip initialization for vim-tiny or vim-small.
-if !1 | finish | endif
+" -*- mode: vimrc -*-
+"vim: ft=vim
 
-if has('vim_starting')
-  set nocompatible               " Be iMproved
+" dotspacevim/auto-install {{{
+" Automatic installation of spacevim.
 
-  let NeoBundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
-  if !filereadable(NeoBundle_readme)
-    silent !curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
-  endif
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+if empty(glob('~/.vim/autoload/spacevim.vim'))
+    silent !curl -sSfLo ~/.vim/autoload/spacevim.vim --create-dirs
+          \ https://raw.githubusercontent.com/ctjhoa/spacevim/master/autoload/spacevim.vim
 endif
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+" }}}
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+" dotspacevim/init {{{
+" This code is called at the very startup of Spacevim initialization
+" before layers configuration.
+" You should not put any user code in there besides modifying the variable
+" values."
+" IMPORTANT: For the moment, any changes in plugins or layers needs
+" a vim restart and :PlugInstall
 
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-NeoBundle 'tpope/vim-sensible'
-NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
-NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-NeoBundle 'junegunn/fzf.vim'
-NeoBundle 'junegunn/gv.vim'
-NeoBundle 'ctjhoa/miro8'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'hecal3/vim-leader-guide'
-NeoBundle 'dbakker/vim-projectroot'
-NeoBundle 'ctjhoa/spacevim'
-NeoBundle 'kovisoft/paredit'
-NeoBundle 'sheerun/vim-polyglot'
-NeoBundleLazy 'elzr/vim-json', {
-\ 'autoload': {
-\     'filetypes': 'json',
-\    },
-\ }
-NeoBundleLazy 'cohama/lexima.vim', {
-\ 'autoload': {
-\     'filetypes': 'lisp',
-\    },
-\ }
-NeoBundleLazy 'tpope/vim-markdown', {
-\ 'autoload': {
-\     'filetypes': 'markdown',
-\    },
-\ }
-NeoBundleLazy 'cespare/vim-toml', {
-\ 'autoload': {
-\     'filetypes': 'toml',
-\    },
-\ }
-NeoBundleLazy 'rust-lang/rust.vim', {
-\ 'autoload': {
-\     'filetypes': 'rust',
-\    },
-\ }
+  let g:dotspacevim_distribution_mode = 1
 
-call neobundle#end()
+  let g:dotspacevim_configuration_layers = [
+  \  'core/.*',
+  \  'git',
+  \  'syntax-checking'
+  \]
 
-" Required:
-filetype plugin indent on
+  let g:dotspacevim_additional_plugins = ['morhetz/gruvbox']
+  " You can also pass vim plug options like this: [{ 'name': 'Valloric/YouCompleteMe', 'option': {'do': './install.py'}}]
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+  let g:dotspacevim_excluded_plugins = []
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Jason Wryan colorscheme
-colorscheme miro8
+  " let g:dotspacevim_escape_key_sequence = 'fd'
 
-" 256 colors
-set t_Co=256
+" }}}
 
-" Line number
-set number
+" dotspacevim/user-init {{{
+" Initialization for user code.
+" It is compute immediately after `dotspacemacs/init', before layer
+" configuration executes.
+" This function is mostly useful for variables that need to be set
+" before plugins are loaded. If you are unsure, you should try in setting
+" them in `dotspacevim/user-config' first."
 
-set cursorline
+  let mapleader = ' '
+  let g:leaderGuide_vertical = 1
 
-" I laugh in the face of danger
-set nobackup
-set noswapfile
+" }}}
 
-" Persistent undo
-if has('persistent_undo')
-	let undodir = expand("~/.vim/undos")
-	if !isdirectory(undodir)
-		call mkdir(undodir)
-	endif
-	set undodir=~/.vim/undos
-	set undofile
-endif
+call spacevim#bootstrap()
 
-let mapleader = " "
-let g:leaderGuide_vertical = 1
+" dotspacevim/user-config {{{
+" Configuration for user code.
+" This is computed at the very end of Spacevim initialization after
+" layers configuration.
+" This is the place where most of your configurations should be done.
+" Unless it is explicitly specified that
+" a variable should be set before a plugin is loaded,
+" you should place your code here."
 
-" Escape to quit
-function! s:UniteSettings()
-	let b:actually_quit = 0
-	setlocal updatetime=3
-	au! InsertEnter <buffer> let b:actually_quit = 0
-	au! InsertLeave <buffer> let b:actually_quit = 1
-	au! CursorHold  <buffer> if exists('b:actually_quit') && b:actually_quit | close | endif
-endfunction
-au FileType unite call s:UniteSettings()
+  set background=dark
+  colorscheme gruvbox
 
-" Unite settings
-call unite#custom#profile('default', 'context', {
-			\ 'start_insert': 1,
-			\ 'winheight': 10,
-			\ 'direction': 'botright',
-			\ })
-
-let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
+" }}}
