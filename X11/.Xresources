@@ -11,10 +11,13 @@ Xft.rgba: rgb
 
 
 ! xterm
-xterm*faceName:         xft:DejaVuSansMono:medium:size=9
+xterm*faceName:         xft:DejaVuSansMono:medium:size=8
 
 ! URxvt
-URxvt*font:            	xft:DejaVuSansMono:medium:size=9
+URxvt*font:            	xft:DejaVuSansMono:medium:size=8
 URxvt.letterSpace: 	-1
 URxvt*scrollBar:        false
 URxvt*saveLines:  	0
+
+! Emacs
+Emacs.font:            	DejaVuSansMono-8
