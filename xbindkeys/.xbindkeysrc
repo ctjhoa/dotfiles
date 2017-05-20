@@ -1,3 +1,9 @@
+"asus-kbd-backlight up"
+XF86KbdBrightnessUp
+
+"asus-kbd-backlight down"
+XF86KbdBrightnessDown
+
 "pactl set-sink-mute 0 toggle"
 XF86AudioMute
 
