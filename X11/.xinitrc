@@ -16,6 +16,7 @@ redshift &
 xbindkeys &
 
 export _JAVA_AWT_WM_NONREPARENTING=1
+export GDK_SCALE=2
 
 # Statusbar loop
 while true; do
