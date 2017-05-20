@@ -60,6 +60,7 @@ values."
      markdown
      rust
      sql
+     yaml
      ;; !source-control
      git
      github
