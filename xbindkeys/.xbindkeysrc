@@ -1,0 +1,8 @@
+"amixer -D pulse set Master Playback Switch toggle"
+XF86AudioMute
+
+"amixer set Master playback 5%+"
+XF86AudioRaiseVolume
+
+"amixer set Master playback 5%-"
+XF86AudioLowerVolume

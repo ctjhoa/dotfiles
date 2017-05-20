@@ -13,6 +13,7 @@ stow spacemacs
 stow tmux
 stow vim
 stow X11
+stow xbindkeys
 stow zsh
 
 if [ "$(expr substr $(uname -s) 1 9)" == "CYGWIN_NT" ]; then

@@ -13,6 +13,7 @@ fi
 
 compton --config ~/.compton.conf -b
 redshift &
+xbindkeys &
 
 # Statusbar loop
 while true; do
