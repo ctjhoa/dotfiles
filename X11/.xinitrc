@@ -12,8 +12,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 compton --config ~/.compton.conf -b
-xrandr --dpi 165 # Change this to your true dpi (https://duckduckgo.com/?q=dpi+calculator) (http://ncalculators.com/multiplication-table/24.htm)
->>>>>>> Add dpi
+xrandr --dpi 168 # Change this to your true dpi (https://duckduckgo.com/?q=dpi+calculator) (http://ncalculators.com/multiplication-table/24.htm)
 redshift &
 xbindkeys &
 
