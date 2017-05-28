@@ -18,6 +18,7 @@ feh --bg-scale /home/ctjhoa/wallpapers/gits.png
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 export GDK_SCALE=2
+export SWT_GTK3=0
 
 # Statusbar loop
 while true; do
