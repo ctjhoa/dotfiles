@@ -19,11 +19,11 @@ xbindkeys &
 # Statusbar loop
 while true; do
   # Power/Battery Status
-  if [ -e "/sys/class/power_supply/AC0/online" ] && [ ! "$( cat /sys/class/power_supply/AC0/online )" -eq "1" ]; then
-    DWM_BATTERY=$(( `cat /sys/class/power_supply/BAT0/energy_now` * 100 / `cat /sys/class/power_supply/BAT0/energy_full` ));
+  if [[ $(acpi -b) == *"Discharging"* ]]; then
+    DWM_BATTERY=$(acpi -b | grep -Eo "[0-9]+%");
   else
     DWM_BATTERY="AC";
-  fi;
+  fi
 
   # Date
   DWM_DATE=$( date +"%d %a" )
