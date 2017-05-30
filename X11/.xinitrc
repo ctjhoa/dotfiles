@@ -16,6 +16,8 @@ xrandr --dpi 96 # Change this to your true dpi (https://duckduckgo.com/?q=dpi+ca
 redshift &
 xbindkeys &
 
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # Statusbar loop
 while true; do
   # Power/Battery Status
