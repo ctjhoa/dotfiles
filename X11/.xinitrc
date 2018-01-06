@@ -15,7 +15,7 @@ compton --config ~/.compton.conf -b
 xrandr --dpi 168 # Change this to your true dpi (https://duckduckgo.com/?q=dpi+calculator) (http://ncalculators.com/multiplication-table/24.htm)
 redshift &
 xbindkeys &
-feh --bg-scale /home/ctjhoa/wallpapers/big_fish.png
+feh --bg-scale /home/ctjhoa/wallpapers/rust.jpg
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
