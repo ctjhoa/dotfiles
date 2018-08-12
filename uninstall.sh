@@ -4,7 +4,6 @@ stow -D X11
 stow -D compton
 stow -D dunst
 stow -D git
-stow -D gtk
 stow -D mpv
 stow -D mysql
 stow -D postgresql

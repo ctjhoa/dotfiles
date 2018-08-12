@@ -4,7 +4,6 @@ stow X11
 stow compton
 stow dunst
 stow git
-stow gtk
 stow mpv
 stow mysql
 stow postgresql

@@ -18,6 +18,9 @@ Use GNU Stow to handle links.
 - xorg
 - zsh
 
+## GTK
+Use `lxappearance` to customize GTK 2 & 3
+
 ## Tmux
 Simple custom style from Jason Wryan with full vi mode.
 
