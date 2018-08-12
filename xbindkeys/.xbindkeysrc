@@ -1,4 +1,4 @@
-"amixer -D pulse set Master Playback Switch toggle"
+"pactl set-sink-mute 0 toggle"
 XF86AudioMute
 
 "amixer set Master playback 5%+"
