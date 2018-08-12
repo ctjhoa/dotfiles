@@ -1,7 +1,6 @@
 #!/bin/sh
 
 stow -D X11
-stow -D compton
 stow -D dunst
 stow -D git
 stow -D mpv
