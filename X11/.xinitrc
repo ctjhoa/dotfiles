@@ -15,6 +15,7 @@ compton --config ~/.compton.conf -b
 xrandr --dpi 120 # Change this to your true dpi (https://duckduckgo.com/?q=dpi+calculator) (http://ncalculators.com/multiplication-table/24.htm)
 redshift &
 xbindkeys &
+feh --bg-scale /home/ctjhoa/wallpapers/skynet.png
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
