@@ -15,6 +15,6 @@ stow -D xbindkeys
 stow -D zsh
 
 if [ "$(expr substr $(uname -s) 1 9)" == "CYGWIN_NT" ]; then
-	stow mintty
+	stow -D mintty
 fi
 
