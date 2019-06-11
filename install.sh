@@ -10,7 +10,6 @@ stow redshift
 stow spacemacs
 stow tmux
 stow vim
-stow X11
 stow xbindkeys
 stow zsh
 
