@@ -62,5 +62,6 @@ call spacevim#bootstrap()
 
   set background=dark
   colorscheme gruvbox
+  nnoremap Y y$
 
 " }}}
