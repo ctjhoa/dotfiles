@@ -17,3 +17,8 @@
 	interactive = auto
 	status = auto
 
+[github]
+	user = ctjhoa
+
+[gitlab]
+	user = ctjhoa
