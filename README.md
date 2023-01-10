@@ -6,6 +6,7 @@ No preview for the moment (but soon)
 
 ## Installation
 ```
+git clone --recurse-submodules -j8 git@github.com:ctjhoa/dotfiles.git
 chmod +x install.sh
 ./install.sh
 ```
