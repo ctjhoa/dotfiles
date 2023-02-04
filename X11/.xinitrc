@@ -11,12 +11,19 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-xrandr --dpi 96 # Change this to your true dpi (https://duckduckgo.com/?q=dpi+calculator) (http://ncalculators.com/multiplication-table/24.htm)
+# xrandr --dpi 96 # Change this to your true dpi (https://duckduckgo.com/?q=dpi+calculator) (http://ncalculators.com/multiplication-table/24.htm)
 redshift &
 xbindkeys &
 feh --bg-center /home/ctjhoa/wallpapers/big_fish.png --image-bg '#242424'
 
 export _JAVA_AWT_WM_NONREPARENTING=1
+export GDK_DPI_SCALE=1.25
+
+#export GDK_SCALE=2
+#export GDK_DPI_SCALE=0.5
+#export QT_AUTO_SCREEN_SET_FACTOR=0
+#export QT_SCALE_FACTOR=2
+#export QT_FONT_DPI=96
 
 # Statusbar loop
 while true; do

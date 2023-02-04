@@ -6,3 +6,9 @@ XF86AudioRaiseVolume
 
 "amixer set Master playback 5%-"
 XF86AudioLowerVolume
+
+"light -A 10"
+XF86MonBrightnessUp
+
+"light -U 10"
+XF86MonBrightnessDown
