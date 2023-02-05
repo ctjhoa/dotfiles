@@ -14,6 +14,7 @@ fi
 xrandr --dpi 96 # Change this to your true dpi (https://duckduckgo.com/?q=dpi+calculator) (http://ncalculators.com/multiplication-table/24.htm)
 redshift &
 xbindkeys &
+feh --bg-center /home/ctjhoa/wallpapers/big_fish.png --image-bg '#242424'
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
@@ -39,7 +40,7 @@ while true; do
   DWM_WIDGETS=("$DWM_BATTERY" "$DWM_DATE" "$DWM_CLOCK")
 
   # Final bar
-  DWM_BAR="$( printf "${DWM_SEP}%s" "${DWM_WIDGETS[@]}" )"
+  DWM_BAR="$( printf " ${DWM_SEP}%s" "${DWM_WIDGETS[@]}" )"
   DWM_BAR="${DWM_BAR:${#DWM_SEP}}"
   xsetroot -name "${DWM_BAR}"
 
