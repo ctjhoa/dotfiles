@@ -1,6 +1,7 @@
 #!/bin/sh
 
 stow -D X11
+stow -D alacritty
 stow -D dunst
 stow -D git
 stow -D mpv
